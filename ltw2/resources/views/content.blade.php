@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="http://localhost:82/ltw2nguyen/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+       
     </head>
     <body>
         <div class="mod-custom-27">				

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 30, 2018 lúc 09:07 SA
+-- Thời gian đã tạo: Th4 19, 2018 lúc 03:37 CH
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 7.0.10
 
@@ -28,17 +28,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `menu` (
   `menu_id` int(11) NOT NULL,
+  `menu_id_parent` int(11) DEFAULT NULL,
   `menu_name` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `menu_status` varchar(55) COLLATE utf8_unicode_ci NOT NULL
+  `menu_status` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `menu`
 --
 
-INSERT INTO `menu` (`menu_id`, `menu_name`, `menu_status`) VALUES
-(1, 'menu_bar', 'open'),
-(2, 'menu_tool', 'open');
+INSERT INTO `menu` (`menu_id`, `menu_id_parent`, `menu_name`, `menu_status`) VALUES
+(1, NULL, 'Trang Chủ', ''),
+(2, NULL, 'Làm Đẹp', ''),
+(3, NULL, 'Sức Khỏe', ''),
+(4, 3, 'Sữa rửa mặt', ''),
+(8, 3, 'Kem Chống Nắng', ''),
+(6, 2, 'Mỹ Phẩm Edally Ex', ''),
+(7, 4, 'Sữa Rửa Mặt Nhật Bản', ''),
+(5, 2, 'Nước Hoa Hồng', '');
 
 -- --------------------------------------------------------
 
@@ -59,7 +66,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`student_id`, `student_name`, `student_email`, `student_phone`, `student_info`) VALUES
-(1, 'Nguyễn Văn An', 'nguyenvanan@gmail.com', 1234567891, 'Tôi là sinh viên CNTT. Thích đi phượt.'),
+(1, 'Nguyễn Văn Châu', 'nguyenvanan@gmail.com', 1234567891, 'Tôi là sinh viên CNTT. Thích đi phượt.'),
 (2, 'Hoàng Văn Nam', 'hoangvannam@gmail.com', 954257899, 'Tôi là một chàng trai nhạy cảm.'),
 (3, 'Lê Hoàng Phúc', 'lehoangphuc@gmail.com', 952148526, 'Sở thích của tôi là : đọc sách, nghe nhạc,....'),
 (4, 'Võ Thị Yến Nhi', 'yennhi@gmail.com', 935245896, 'Nhi xinh đẹp, thích shopping.'),
@@ -89,7 +96,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT cho bảng `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT cho bảng `students`
 --

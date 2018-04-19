@@ -12,23 +12,18 @@ use App\Http\Models\Sample;
 
 class SampleController extends Controller {
 
-    public function index() {
-        $obj = new Sample();
-        $datamenu = $obj::all();
-        //
-        $parents = $obj->getParents();
-        $childs = $obj->getChilds($parents);
-       //
-        $obj = new Student();
-        $data = $obj::all();
-        
-        
+     
+
+ public function index() {
+    	$obj = new Sample();																
+		$parents = $obj->getParents();
+		$obj->getChilds($parents);
+		$obj = new Student();
+		$data = $obj::all();
+		return view('main',['data' => $data,'childs' => $parents]);
+	}
 
 
-
-
-
-        return view('main', ['datamenu' => $datamenu, 'data' => $data, 'childs' => $childs]);
     }
 
-}
+
